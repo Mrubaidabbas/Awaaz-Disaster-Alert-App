@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#102d35">
+  <title>Awaaz | Disaster Alert Desk</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Main navigation">
+      <a class="brand" href="#top" aria-label="Awaaz home">
+        <span class="brand-mark" aria-hidden="true">A</span>
+        <span><strong>awaaz</strong><small>COMMUNITY SAFETY</small></span>
+      </a>
+      <div class="side-label">WORKSPACE</div>
+      <nav>
+        <a class="nav-link active" href="#overview"><span>◫</span> Overview</a>
+        <a class="nav-link" href="#incidents"><span>◎</span> Incidents <b id="nav-count">0</b></a>
+        <a class="nav-link" href="#stations"><span>⌖</span> Response stations</a>
+        <a class="nav-link" href="#vision"><span>◉</span> Vision model</a>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="side-label">DEMO AREA</div>
+        <div class="area-chip"><span class="online-dot"></span> Karachi · Sample zone</div>
+        <p>This prototype uses sample data. No real emergency services are contacted.</p>
+      </div>
+    </aside>
+
+    <main id="top" class="main-content">
+      <header class="topbar">
+        <div class="breadcrumb">Workspace <span>/</span> Overview</div>
+        <div class="top-actions"><span class="demo-pill"><i></i> SIMULATION MODE</span><span class="avatar" title="Demo operator">U</span></div>
+      </header>
+
+      <section id="overview" class="page-intro">
+        <div>
+          <p class="eyebrow"><span id="header-date"></span> · OPERATIONS DESK</p>
+          <h1>Good morning, Ubaid</h1>
+          <p class="subhead">Monitor sample hazard reports and coordinate a local response.</p>
+        </div>
+        <button class="primary-button" id="new-alert"><span>＋</span> Create test alert</button>
+      </section>
+
+      <section class="metrics" aria-label="Current overview">
+        <article class="metric-card"><div class="metric-top"><span>ACTIVE TEST ALERTS</span><span class="metric-icon coral">!</span></div><div class="metric-value" id="active-count">0</div><div class="metric-note"><span class="tiny-dot coral-bg"></span> Simulated incidents only</div></article>
+        <article class="metric-card"><div class="metric-top"><span>STATIONS ONLINE</span><span class="metric-icon mint">⌖</span></div><div class="metric-value">3<span class="metric-unit"> / 3</span></div><div class="metric-note"><span class="tiny-dot mint-bg"></span> Demo directory available</div></article>
+        <article class="metric-card"><div class="metric-top"><span>ACKNOWLEDGED</span><span class="metric-icon blue">✓</span></div><div class="metric-value" id="ack-count">0<span class="metric-unit"> / 0</span></div><div class="metric-note">Updated as you use the demo</div></article>
+        <article class="metric-card"><div class="metric-top"><span>VISION MODEL</span><span class="metric-icon amber">◉</span></div><div class="metric-value model-state">Not connected</div><div class="metric-note">Integration placeholder</div></article>
+      </section>
+
+      <section class="dashboard-grid">
+        <article class="panel map-panel">
+          <div class="panel-heading"><div><h2>Sample response area</h2><p>Illustrative layout · not a live map</p></div><button class="quiet-button" id="reset-demo">Reset demo</button></div>
+          <div class="map-canvas" aria-label="Illustrative map with three response stations">
+            <svg class="roads" viewBox="0 0 760 370" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M-20 80 C140 130 190 25 330 70 S540 145 790 42"/><path d="M-20 255 C120 190 230 315 365 250 S580 190 790 290"/><path d="M115 -20 C145 90 230 130 202 220 S125 320 172 390"/><path d="M470 -20 C430 55 510 140 470 210 S440 305 500 390"/><path d="M650 -20 C585 75 655 135 610 220 S630 330 705 390"/>
+              <path class="road-major" d="M-15 170 C150 205 230 115 385 165 S590 230 780 150"/><path class="road-major" d="M320 -10 C280 80 360 125 330 205 S290 315 350 385"/>
+            </svg>
+            <div class="district district-north">NORTH SECTOR</div><div class="district district-central">CENTRAL SECTOR</div><div class="district district-south">SOUTH SECTOR</div>
+            <div class="map-station station-one"><span>⌖</span><small>North Station</small></div>
+            <div class="map-station station-two"><span>⌖</span><small>Central Station</small></div>
+            <div class="map-station station-three"><span>⌖</span><small>South Station</small></div>
+            <div class="map-alert hidden" id="map-alert"><span class="pulse"></span><strong id="map-alert-label">TEST ALERT</strong></div>
+            <div class="map-legend"><span><i class="legend-station"></i> Response station</span><span><i class="legend-alert"></i> Test alert</span></div>
+          </div>
+          <div class="map-footnote"><span class="info-icon">i</span> Locations are fictional placeholders for demonstration.</div>
+        </article>
+
+        <article class="panel station-panel" id="stations">
+          <div class="panel-heading"><div><h2>Response stations</h2><p>Sample contacts for this demo</p></div><span class="online-tag"><i></i> ALL ONLINE</span></div>
+          <div class="station-list">
+            <div class="station-row"><div class="station-avatar green">N</div><div class="station-info"><strong>North Response Unit</strong><span>North Sector · Fire & rescue</span></div><span class="status-online">Online</span></div>
+            <div class="station-row"><div class="station-avatar violet">C</div><div class="station-info"><strong>Central Safety Desk</strong><span>Central Sector · Coordination</span></div><span class="status-online">Online</span></div>
+            <div class="station-row"><div class="station-avatar orange">S</div><div class="station-info"><strong>South Response Unit</strong><span>South Sector · Fire & rescue</span></div><span class="status-online">Online</span></div>
+          </div>
+          <div class="station-notice"><span>↗</span><div><strong>Demo notifications only</strong><small>No messages are sent outside this browser.</small></div></div>
+        </article>
+      </section>
+
+      <section class="panel incidents-panel" id="incidents">
+        <div class="panel-heading incident-heading"><div><h2>Recent incidents</h2><p>Test alerts created in this browser</p></div><div class="filter-label"><span class="tiny-dot blue-bg"></span> All types</div></div>
+        <div class="table-wrap"><table><thead><tr><th>HAZARD</th><th>AREA</th><th>SEVERITY</th><th>SOURCE</th><th>STATION STATUS</th><th></th></tr></thead><tbody id="incident-rows"></tbody></table><div class="empty-state" id="empty-state"><span class="empty-icon">⌁</span><strong>No test alerts yet</strong><span>Create a sample alert to see how Awaaz routes it.</span></div></div>
+      </section>
+
+      <section class="panel vision-panel" id="vision">
+        <div class="vision-mark">◉</div>
+        <div class="vision-copy"><div class="vision-title"><h2>Fire and smoke vision model</h2><span class="build-tag">PLANNED COMPONENT</span></div><p>The model has not been trained or connected yet. For this milestone, the dashboard provides the response workflow it will connect to. No image is analyzed in this demo.</p></div>
+        <button class="outline-button" id="vision-info">View next steps <span>→</span></button>
+      </section>
+      <footer class="footer"><span>AWAAZ · SEMESTER PROJECT PROTOTYPE</span><span>Simulation only · Not for real emergency use</span></footer>
+    </main>
+  </div>
+
+  <div class="modal-backdrop hidden" id="alert-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal"><button class="modal-close" id="close-modal" aria-label="Close">×</button><p class="eyebrow">SIMULATED EVENT</p><h2 id="modal-title">Create a test alert</h2><p class="modal-desc">Choose a sample event to preview the station notification workflow.</p>
+      <label for="hazard-type">Hazard type</label><select id="hazard-type"><option value="Flood">Flood</option><option value="Wildfire">Wildfire</option><option value="Building fire">Building fire</option><option value="Earthquake">Earthquake</option><option value="Extreme rainfall">Extreme rainfall</option></select>
+      <label for="hazard-area">Sample area</label><select id="hazard-area"><option>North Sector</option><option>Central Sector</option><option>South Sector</option></select>
+      <label for="hazard-severity">Demo severity</label><select id="hazard-severity"><option>Watch</option><option>Warning</option><option>Critical</option></select>
+      <div class="modal-safety"><span>i</span><p>This creates a local demo record only. It will not contact a station or trigger an alarm.</p></div>
+      <button class="primary-button modal-submit" id="submit-alert">Create simulated alert</button>
+    </div>
+  </div>
+  <div class="toast hidden" id="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>

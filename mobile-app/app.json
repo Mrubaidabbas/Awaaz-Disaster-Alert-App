@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "Awaaz Disaster Alerts",
+    "slug": "awaaz-disaster-alerts",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "android": { "package": "com.awaaz.disasteralerts" },
+    "ios": { "bundleIdentifier": "com.awaaz.disasteralerts" }
+  }
+}
