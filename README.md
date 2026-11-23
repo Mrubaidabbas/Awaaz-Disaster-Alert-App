@@ -16,6 +16,6 @@ Open `web-app/index.html` in Chrome or another modern browser. The browser demo 
 
 If Windows displays a security prompt for the batch file, choose **Run**. Keep the terminal window open while testing. Press Ctrl+C to stop Expo.
 
-## Demo limits
+## limits
 
 Both apps use sample data. No AI model, sensors, live GPS, SMS, external station connection, public alert, or siren is connected. Do not use this prototype for emergency response.
